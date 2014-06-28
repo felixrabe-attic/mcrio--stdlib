@@ -20,7 +20,8 @@ Without monkey-patching:
 
 With monkey-patching:
 
-    require('mcrio-stdlib').monkey()
+    require('mcrio-stdlib').monkey();
+    'file.md'.endsWith('.md') === true;
 
 
 License
