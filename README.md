@@ -1,22 +1,13 @@
-gulp-setup
-==========
+mcrio-stdlib
+============
 
-Example gulp.js setup with correct usage of gulp-coffee, gulp-mocha, and gulp.watch.
-
-**Caution about package.json**: This does *not* include a full `package.json`
-file, just a bare-minimum one.  To get a full `package.json`, run `npm init`
-somewhere and copy-and-paste as needed.
+mcr.io standard library with optional monkey-patching.
 
 
-Quick start
------------
+Installation
+------------
 
-    $ git clone https://github.com/felixrabe/gulp-setup.git
-    $ cd ./gulp-setup
-    $ gulp
-
-This will watch the existing files in `./lib-src` and `./test` and re-test on
-any change.
+    npm install --save mcrio-stdlib
 
 
 License

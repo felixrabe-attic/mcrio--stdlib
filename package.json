@@ -1,9 +1,27 @@
 {
+  "name": "mcrio-stdlib",
+  "version": "0.0.0",
+  "description": "mcr.io standard library with optional monkey-patching",
   "main": "./lib",
   "scripts": {
     "prepublish": "gulp build",
     "test": "gulp test"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mcrio/stdlib.git"
+  },
+  "keywords": [
+    "markup",
+    "language",
+    "dsl"
+  ],
+  "author": "Felix Rabe <felix@rabe.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mcrio/stdlib/issues"
+  },
+  "homepage": "https://github.com/mcrio/stdlib",
   "devDependencies": {
     "chai": "^1.9.1",
     "coffee-script": "^1.7.1",
