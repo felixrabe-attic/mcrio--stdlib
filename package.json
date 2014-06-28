@@ -12,9 +12,7 @@
     "url": "https://github.com/mcrio/stdlib.git"
   },
   "keywords": [
-    "markup",
-    "language",
-    "dsl"
+    "util"
   ],
   "author": "Felix Rabe <felix@rabe.io>",
   "license": "MIT",
