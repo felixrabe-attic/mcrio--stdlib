@@ -10,6 +10,19 @@ Installation
     npm install --save mcrio-stdlib
 
 
+String methods
+--------------
+
+Without monkey-patching:
+
+    var stdlib = require('mcrio-stdlib');
+    stdlib.endsWith('file.md', '.md') === true;
+
+With monkey-patching:
+
+    require('mcrio-stdlib').monkey()
+
+
 License
 -------
 
