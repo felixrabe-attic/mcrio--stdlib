@@ -21,5 +21,9 @@ module.exports =
   endsWith: monkeyable String, 'endsWith', (string, other) ->
     other == '' or string.slice(-other.length) == other
 
+  # http://stackoverflow.com/a/646643
+  startsWith: monkeyable String, 'startsWith', (string, other) ->
+    string.slice(0, other.length) == other
+
   # Monkey-patch all methods
   monkey: -> method.monkey?() for method in allMonkeyables
