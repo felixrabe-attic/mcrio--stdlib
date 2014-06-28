@@ -1,14 +1,25 @@
-monkey = (cls, method) ->
-  module.exports[method].monkey = ->
-    cls::[method] = (args...) ->
-      module.exports[method] @, args...
+allMonkeyables = []
 
-module.exports = stdlib =
+monkeyable = (cls, methodName, method) ->
+  method.monkey = (opts = {}) ->
+    opts.ifExists ?= 'keep'  # valid values: keep, replace, fail
+    if cls::[methodName]?
+      switch opts.ifExists
+        when 'fail'
+          m = "Method already exists: #{cls.name}.prototype.#{methodName}"
+          throw new Error m
+        when 'keep'
+          return
+    cls::[methodName] = (args...) ->
+      method @, args...
+    return
+  allMonkeyables.push method
+  method
+
+module.exports =
   # http://stackoverflow.com/a/646643
-  endsWith: (string, other) ->
+  endsWith: monkeyable String, 'endsWith', (string, other) ->
     other == '' or string.slice(-other.length) == other
 
   # Monkey-patch all methods
-  monkey: -> method.monkey?() for own n, method of stdlib
-
-monkey String, 'endsWith'
+  monkey: -> method.monkey?() for method in allMonkeyables

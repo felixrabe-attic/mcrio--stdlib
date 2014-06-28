@@ -9,7 +9,7 @@ describe 'stdlib.endsWith', ->
 
 describe 'String::endsWith', ->
   before ->
-    stdlib.endsWith.monkey()
+    stdlib.endsWith.monkey(ifExists: 'replace')
   it 'should accept empty string', ->
     ''.endsWith('').should.be.true
     ''.endsWith('foo').should.be.false
