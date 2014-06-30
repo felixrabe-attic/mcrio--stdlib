@@ -25,5 +25,15 @@ module.exports = stdlib =
   startsWith: monkeyable String, 'startsWith', (string, other) ->
     string.slice(0, other.length) == other
 
+  replacePrefix: monkeyable String, 'replacePrefix', (string, oldPrefix, newPrefix) ->
+    unless stdlib.startsWith string, oldPrefix
+      throw new Error "'#{string}' does not start with '#{oldPrefix}'"
+    newPrefix + string.slice oldPrefix.length
+
+  replaceSuffix: monkeyable String, 'replaceSuffix', (string, oldSuffix, newSuffix) ->
+    unless stdlib.endsWith string, oldSuffix
+      throw new Error "'#{string}' does not end with '#{oldSuffix}'"
+    string.slice(0, string.length - oldSuffix.length) + newSuffix
+
   # Monkey-patch all methods
   monkey: -> method.monkey?() for method in allMonkeyables
