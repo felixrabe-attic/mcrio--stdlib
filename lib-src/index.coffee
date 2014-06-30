@@ -16,7 +16,7 @@ monkeyable = (cls, methodName, method) ->
   allMonkeyables.push method
   method
 
-module.exports =
+module.exports = stdlib =
   # http://stackoverflow.com/a/646643
   endsWith: monkeyable String, 'endsWith', (string, other) ->
     other == '' or string.slice(-other.length) == other

@@ -16,6 +16,7 @@ describe 'stdlib.startsWith', ->
 describe 'String::endsWith', ->
   before ->
     stdlib.endsWith.monkey(ifExists: 'replace')
+
   it 'should accept empty string', ->
     ''.endsWith('').should.be.true
     ''.endsWith('foo').should.be.false
@@ -24,6 +25,7 @@ describe 'String::endsWith', ->
 describe 'String::startsWith', ->
   before ->
     stdlib.startsWith.monkey(ifExists: 'replace')
+
   it 'should accept empty string', ->
     ''.startsWith('').should.be.true
     ''.startsWith('foo').should.be.false
