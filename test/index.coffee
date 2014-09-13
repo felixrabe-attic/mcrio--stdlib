@@ -64,3 +64,20 @@ describe 'stdlib.replaceSuffix', ->
     (->
       stdlib.replaceSuffix '123456', 'foo', ''
     ).should.Throw '\'123456\' does not end with \'foo\''
+
+describe 'stdlib.withoutOne', ->
+  withoutOneAssert = (input, element, expected) ->
+    stdlib.withoutOne(input, element).should.deep.equal expected
+
+  it 'should remove one element if found', ->
+    withoutOneAssert ['a', 'b', 'c'], 'a', ['b', 'c']
+    withoutOneAssert ['a', 'b', 'c'], 'b', ['a', 'c']
+    withoutOneAssert ['a', 'b', 'c'], 'c', ['a', 'b']
+
+  it 'should remove the first occurrence of an element if found', ->
+    withoutOneAssert ['a', 'b', 'c', 'b'], 'b', ['a', 'c', 'b']
+
+  it 'should not change the array if element was not found', ->
+    withoutOneAssert ['a', 'b', 'c'], 'd',  ['a', 'b', 'c']
+    withoutOneAssert ['a', 'b', 'c'], null, ['a', 'b', 'c']
+    withoutOneAssert ['a', 'b', 'c'], 0,    ['a', 'b', 'c']

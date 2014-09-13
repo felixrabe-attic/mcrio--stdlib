@@ -35,5 +35,11 @@ module.exports = stdlib =
       throw new Error "'#{string}' does not end with '#{oldSuffix}'"
     string.slice(0, string.length - oldSuffix.length) + newSuffix
 
+  withoutOne: monkeyable Array, 'withoutOne', (array, element) ->
+    index = array.indexOf(element)
+    if index > -1
+      array.splice index, 1
+    return array
+
   # Monkey-patch all methods
   monkey: -> method.monkey?() for method in allMonkeyables
