@@ -1,6 +1,6 @@
 {
   "name": "mcrio-stdlib",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "mcr.io standard library with optional monkey-patching",
   "main": "./lib",
   "scripts": {
