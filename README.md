@@ -42,6 +42,8 @@ All provided methods
 
 ### String.prototype.replaceSuffix(oldSuffix, newSuffix)
 
+### String.prototype.splitOnce(separator)
+
 ### Array.prototype.withoutOne(element)
 
 

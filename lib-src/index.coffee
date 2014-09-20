@@ -35,6 +35,11 @@ module.exports = stdlib =
       throw new Error "'#{string}' does not end with '#{oldSuffix}'"
     string.slice(0, string.length - oldSuffix.length) + newSuffix
 
+  # http://stackoverflow.com/a/2878746/1034080
+  splitOnce: monkeyable String, 'splitOnce', (string, separator) ->
+    i = string.indexOf(separator)
+    [string.slice(0, i), string.slice(i+1)]
+
   withoutOne: monkeyable Array, 'withoutOne', (array, element) ->
     index = array.indexOf(element)
     if index > -1

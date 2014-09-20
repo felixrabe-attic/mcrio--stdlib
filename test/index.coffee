@@ -65,6 +65,13 @@ describe 'stdlib.replaceSuffix', ->
       stdlib.replaceSuffix '123456', 'foo', ''
     ).should.Throw '\'123456\' does not end with \'foo\''
 
+describe 'stdlib.splitOnce', ->
+  it 'should accept empty strings', ->
+    stdlib.splitOnce('', '').should.deep.equal ['', '']
+
+  it 'should split once', ->
+    stdlib.splitOnce('a b c', ' ').should.deep.equal ['a', 'b c']
+
 describe 'stdlib.withoutOne', ->
   withoutOneAssert = (input, element, expected) ->
     stdlib.withoutOne(input, element).should.deep.equal expected
