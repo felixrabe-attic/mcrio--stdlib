@@ -10,18 +10,39 @@ Installation
     npm install --save mcrio-stdlib
 
 
-String methods
---------------
+Optional monkey-patching
+------------------------
 
-Without monkey-patching:
+Without monkey-patching, you use the form `stdlib.fn(obj, args...)`:
 
     var stdlib = require('mcrio-stdlib');
     stdlib.endsWith('file.md', '.md') === true;
 
-With monkey-patching:
+With monkey-patching, you use the form `obj.fn(args...)`:
 
     require('mcrio-stdlib').monkey();
     'file.md'.endsWith('.md') === true;
+
+Individual methods can be "monkey-ed" by calling `stdlib.fn.monkey()`:
+
+    var stdlib = require('mcrio-stdlib');
+    stdlib.startsWith.monkey();
+    stdlib.endsWith('foo bar', 'bar') === true;
+    'foo bar'.startsWith('foo') === true;
+
+
+All provided methods
+--------------------
+
+### String.prototype.endsWith(other)
+
+### String.prototype.startsWith(other)
+
+### String.prototype.replacePrefix(oldPrefix, newPrefix)
+
+### String.prototype.replaceSuffix(oldSuffix, newSuffix)
+
+### Array.prototype.withoutOne(element)
 
 
 License
