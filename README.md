@@ -7,7 +7,7 @@ mcr.io standard library with optional monkey-patching.
 Installation
 ------------
 
-    npm install --save mcrio-stdlib
+    npm install mcrio-stdlib
 
 
 Optional monkey-patching
@@ -26,8 +26,8 @@ With monkey-patching, you use the form `obj.fn(args...)`:
 Individual methods can be "monkey-ed" by calling `stdlib.fn.monkey()`:
 
     var stdlib = require('mcrio-stdlib');
-    stdlib.startsWith.monkey();
     stdlib.endsWith('foo bar', 'bar') === true;
+    stdlib.startsWith.monkey();
     'foo bar'.startsWith('foo') === true;
 
 
